@@ -254,6 +254,10 @@ void Transport::error_notification(string msg){
 
 	cerr << msg << endl;
 }
+Transport& Transport::operator=(const Transport& t){
+
+
+}
 Transport::~Transport() {
 	// TODO Auto-generated destructor stub
 }

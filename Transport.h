@@ -88,6 +88,8 @@ public:
     void error_notification(std::string);
 
     friend class Administration;
+
+    Transport& operator=(const Transport&);
 private:
 	std::string departure;
 	std::string destination;
@@ -102,6 +104,7 @@ private:
     int depart_minute;
 	int arrival_minute;
 	double price;
+
 
 };
 

@@ -10,6 +10,10 @@
 
 using namespace std;
 
+
+Bus::Bus(){
+	capacity = 0;
+}
 Bus::Bus(int cap):Transport(),capacity(cap){
 	// TODO Auto-generated constructor stub
    if(cap <= 0){

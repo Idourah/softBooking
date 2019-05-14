@@ -13,6 +13,7 @@
 class Bus :public Transport{
 
 public:
+	Bus();
 	Bus(int);
 	virtual ~Bus();
 

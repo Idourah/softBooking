@@ -14,6 +14,7 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <vector>
 
 
 using namespace std;
@@ -21,7 +22,7 @@ using namespace std;
 Administration::Administration(string path) {
 	// TODO Auto-generated constructor stub
 
-   con = new Connexion(path);
+   con = new Connection(path);
    cout << endl;
 }
 void Administration::login(){
@@ -36,9 +37,11 @@ void Administration::login(){
 	   cout << endl;
 
 }
-void Administration::new_bus_program(string path){
+void Administration::new_bus(string path){
 
 	transport = new Bus(60);
+
+
 	string destination,departure,identifier;
 	int depart_hour,depart_minute,depart_day,arrival_hour,arrival_minute,arrival_day,month,year;
 	double price;
@@ -93,6 +96,45 @@ void Administration::new_bus_program(string path){
 
 	record(*transport,path);
 
+
+}
+int  Administration::rowCount(string file_path){
+
+	ifstream file(file_path);
+	string line;
+	if(file.is_open()){
+		while(!file.eof()){
+			getline(file,line);
+			row++;
+		}
+		file.close();
+	}
+	else{ cerr<< "error when opening the file " << endl;}
+	return row;
+}
+
+
+void Administration::bus_list(string path){
+
+	ifstream file(path);
+	int index = 0;
+	string line;
+	if(file.is_open()){
+        cout << setw(50) <<"Bus available " << endl;
+        cout << endl;
+		while(!file.eof()){
+			getline(file,line);
+            index++;
+			cout << index << "."<< line << endl;
+			cout << endl;
+
+		}
+
+		file.close();
+	}
+	else{
+		cerr << "Error when opening the file " << endl;
+	}
 }
 void Administration::record(Transport &t,string path){
 
@@ -100,11 +142,11 @@ void Administration::record(Transport &t,string path){
 
 	if(file.is_open()){
 
-		file << t.get_departure() << setw(4) << t.get_depart_hour() << ":"<< t.get_depart_minute() << setw(8)
+		file <<"Departure " << t.get_departure() << "  " << t.get_depart_hour() << "h:" << t.get_depart_minute() << " -------> Destination   "
 
-	        << t.get_destination() << setw(8) << t.get_arrival_hour() <<":"<< t.get_arrival_minute() << setw(8)
+	        << t.get_destination() << " " << t.get_arrival_hour() <<"h:"<< t.get_arrival_minute() << "  "
 
-			<< t.get_price() << " $" << endl;
+			<< t.get_price() << "$" << endl;
 
 		file.close();
 	}
