@@ -1,0 +1,3 @@
+Name : christ idourah ---->  Email address : idourah96@gmail.com ----> index : 1 ----> Booking Id 1
+Name : yoane idourah ---->  Email address : karatsuba96gmail.com ----> index : 2 ----> Booking Id 0
+Name : yoane karatsuba ---->  Email address : idourah96@gmail.com ----> index : 0 ----> Booking Id 0
