@@ -14,34 +14,18 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
-#include <vector>
+
 
 
 using namespace std;
 
-Administration::Administration(string path) {
-	// TODO Auto-generated constructor stub
 
-   con = new Connection(path);
-   cout << endl;
-}
-void Administration::login(){
-
-	   cout <<"connecting as an administration member" << endl;cout << endl;
-	   cout << "pseudo   :" << setw(4);
-	   cin>> pseudo;
-	   cout << "password :" << setw(4);
-	   cin>> password;
-
-	   con->login(pseudo,password);
-	   cout << endl;
+Administration::Administration(){
 
 }
 void Administration::new_bus(string path){
 
 	transport = new Bus(60);
-
-
 	string destination,departure,identifier;
 	int depart_hour,depart_minute,depart_day,arrival_hour,arrival_minute,arrival_day,month,year;
 	double price;
@@ -136,6 +120,7 @@ void Administration::bus_list(string path){
 		cerr << "Error when opening the file " << endl;
 	}
 }
+
 void Administration::record(Transport &t,string path){
 
 	ofstream file(path,ios_base::app);
@@ -152,11 +137,36 @@ void Administration::record(Transport &t,string path){
 	}
 	else{cerr<<"error when opening a file " << endl;}
 }
+void Administration::booking_list(string path){
+
+	ifstream file(path);
+	string lines;
+
+	if(file.is_open()){
+
+		cout << setw(50) <<" Booking LIST " << endl;
+
+		cout << endl;
+
+		while(!file.eof()){
+
+			getline(file,lines);
+
+			cout << lines << endl;
+			cout << endl;
+
+		}
+	}
+}
+string Administration::get_pseudo(){
+
+	return pseudo;
+}
 
 Administration::~Administration() {
 	// TODO Auto-generated destructor stub
 
-	delete con;
+
 	delete transport;
 
 }

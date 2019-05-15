@@ -12,7 +12,7 @@
 #include <vector>
 #include "Transport.h"
 #include "Bus.h"
-#include "Connection.h"
+
 
 class Administration {
 public:
@@ -23,8 +23,7 @@ public:
 					\                                                                      /
 					 **********************************************************************/
 
-
-	Administration(std::string);
+	Administration();
 
 	virtual ~Administration();
 
@@ -39,15 +38,7 @@ public:
 
     /************************************************************************
     *                                                                       *
-    *                       login method prototype                          *
-    *                                                                       *
-    *************************************************************************/
-
-	void login();
-
-    /************************************************************************
-    *                                                                       *
-    *                       new_bus method prototype                        *
+    *                      new_bus method prototype                         *
     *                                                                       *
     *************************************************************************/
 
@@ -55,7 +46,7 @@ public:
 
     /************************************************************************
     *                                                                       *
-    *                      new_flight method prototype                       *
+    *                      new_flight method prototype                      *
     *                                                                       *
     *************************************************************************/
 
@@ -71,24 +62,19 @@ public:
 
     /************************************************************************
     *                                                                       *
-    *                       record method prototype                       *
+    *                       record method prototype                         *
     *                                                                       *
     *************************************************************************/
 
 	void record(Transport &,std::string);
 
-	/***************************************************************************************
-	*                                                                                      *
-	*                     fecth_bus method prototype                                       *
-	* this method allows us to retrieve bus objects stored into a file then stored them in *
-	* our bus container																	   *
-	* 																					   *								                                   *
-	* @string path :this argument is the path of the file where our bus objects are stored *
-	* 																					   *
-	* @return a type vector reference that contains bus objects                            *
-	***************************************************************************************/
+	/************************************************************************
+    *                                                                       *
+	*                    booking_list method prototype                      *
+    *															            *
+	*************************************************************************/
 
-
+    void booking_list(std::string);
 
 	/************************************************************************
 	*                                                                       *
@@ -99,6 +85,8 @@ public:
     int rowCount(std::string);
 
     void bus_list(std::string);
+
+    std::string get_pseudo();
 
 
 
@@ -116,10 +104,14 @@ private:
 	* password   : the password used to login                                   			            *
 	*****************************************************************************************************/
 
-	Connection *con = 0;
+
+
 	Transport *transport = 0;
+
 	std::string pseudo;
+
 	std::string password;
+
 	int row = 0;
 
 };

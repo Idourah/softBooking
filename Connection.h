@@ -9,11 +9,11 @@
 #define CONNECTION_H_
 #include <iostream>
 
-class Administration;
 
 class Connection {
 
 public:
+
 
 				/**********************************************************************\
 
@@ -28,7 +28,7 @@ public:
 
 				 /**********************************************************************\
 
-											   CLASS METHODS PROTOTYPES
+									    CLASS METHODS PROTOTYPES
 				 \                                                                      /
 				  **********************************************************************
 
@@ -36,26 +36,11 @@ public:
 
     /************************************************************************
     *                                                                       *
-    *                            login method prototype                     *
+    *                       login method prototype                          *
     *                                                                       *
     *************************************************************************/
-	void login(std::string,std::string);
+	bool login(std::string,std::string);
 
-
-    /************************************************************************
-    *                                                                       *
-    *                   check_password method prototype                     *
-    *                                                                       *
-    *************************************************************************/
-	bool check_password(std::string);
-
-
-    /************************************************************************
-    *                                                                       *
-    *                            check_pseudo method prototype              *
-    *                                                                       *
-    *************************************************************************/
-	bool check_pseudo(std::string);
 
 
     /************************************************************************
@@ -73,16 +58,8 @@ public:
     *                                                                       *
     *************************************************************************/
 
-	void name_fetching(std::string);
+	void Query(std::string);
 
-
-    /************************************************************************
-    *                                                                       *
-    *                       password_fetching method prototype              *
-    *                                                                       *
-    *************************************************************************/
-
-	void password_fetching(std::string);
 
 
     /************************************************************************
@@ -96,41 +73,6 @@ public:
 
     /************************************************************************
     *                                                                       *
-    *                       pseud_extract method prototype                  *
-    *                                                                       *
-    *************************************************************************/
-	std::string pseudo_extract(std::stringstream&);
-
-
-    /************************************************************************
-    *                                                                       *
-    *                     password_extract method prototype                 *
-    *                                                                       *
-    *************************************************************************/
-
-	std::string password_extract(std::stringstream&);
-
-
-    /************************************************************************
-    *                                                                       *
-    *                       set_pseudo method prototype                     *
-    *                                                                       *
-    *************************************************************************/
-
-	void set_pseudo(std::string);
-
-
-    /************************************************************************
-    *                                                                       *
-    *                       set_password method prototype                   *
-    *                                                                       *
-    *************************************************************************/
-
-	void set_password(std::string);
-
-
-    /************************************************************************
-    *                                                                       *
     *                       get_psuedo method prototype                     *
     *                                                                       *
     *************************************************************************/
@@ -139,31 +81,41 @@ public:
 	std::string get_pseudo()const;
 
 
-    /************************************************************************
-    *                                                                       *
-    *                       get_password method prototype                   *
-    *                                                                       *
-    *************************************************************************/
-
-	std::string get_password()const;
-
-
-    /**********************************************************************************
-    *                                                                                 *
-    *  we declare the class Administration as friend to underline encapsulation       *
-    *                                                                                 *
-    *  in our design so Administration will access Connection class members           *
-    ***********************************************************************************/
-
-    friend class Administration;
-
-
 private:
+    /*
+     * @ pseudo   : user pseudo
+     *
+     * @ password : user password
+     *
+     * @ rows     : the number of line that  files contain
+     *
+     * @ name_data_base     : pointer for the name_data_base structure
+     *
+     * @ password_data_base : pointer for the password_data_base structure
+     */
+
+	struct manager{std::string username;std::string pass;};
+
 	std::string pseudo;
+
 	std::string password;
-	std::string *name_data_base = 0;
-	std::string *password_data_base = 0;
+
+	manager *data_base = 0;
+
 	int rows = 0;
+
+
+
 };
 
 #endif /* CONNECTION_H_ */
+
+    /*
+       @ code different
+
+                     @ think different
+
+                                       @ design different
+
+
+                                       We Love Code                                 */
