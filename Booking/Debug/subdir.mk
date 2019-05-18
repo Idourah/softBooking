@@ -6,32 +6,38 @@
 CPP_SRCS += \
 ../Administration.cpp \
 ../Bus.cpp \
+../ClientView.cpp \
 ../Connection.cpp \
 ../Reservation.cpp \
 ../Transport.cpp \
-../features.cpp \
-../main.cpp \
-../view.cpp 
+../View.cpp \
+../ViewManager.cpp \
+../main.cpp 
+
+O_SRCS += \
+../main.o 
 
 OBJS += \
 ./Administration.o \
 ./Bus.o \
+./ClientView.o \
 ./Connection.o \
 ./Reservation.o \
 ./Transport.o \
-./features.o \
-./main.o \
-./view.o 
+./View.o \
+./ViewManager.o \
+./main.o 
 
 CPP_DEPS += \
 ./Administration.d \
 ./Bus.d \
+./ClientView.d \
 ./Connection.d \
 ./Reservation.d \
 ./Transport.d \
-./features.d \
-./main.d \
-./view.d 
+./View.d \
+./ViewManager.d \
+./main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

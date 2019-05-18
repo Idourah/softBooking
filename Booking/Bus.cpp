@@ -11,7 +11,8 @@
 using namespace std;
 
 
-Bus::Bus(){
+Bus::Bus():Transport(){
+
 	capacity = 0;
 }
 Bus::Bus(int cap):Transport(),capacity(cap){

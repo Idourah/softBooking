@@ -6,11 +6,19 @@
  */
 
 
-#include "view.h"
+#include "View.h"
+#include "ViewManager.h"
+#include "ClientView.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
 
 int main(){
 
-     Main();
+   View view;
+   view.Menu();
 }
 
 

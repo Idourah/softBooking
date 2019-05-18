@@ -22,12 +22,16 @@ using namespace std;
 
 Administration::Administration(){
 
+	row = 0;
 }
 void Administration::new_bus(string path){
 
 	transport = new Bus(60);
+
 	string destination,departure,identifier;
+
 	int depart_hour,depart_minute,depart_day,arrival_hour,arrival_minute,arrival_day,month,year;
+
 	double price;
 
 	cout <<"please enter the id of the bus : ";getline(cin,identifier);
@@ -85,15 +89,21 @@ void Administration::new_bus(string path){
 int  Administration::rowCount(string file_path){
 
 	ifstream file(file_path);
+
 	string line;
+
 	if(file.is_open()){
+
 		while(!file.eof()){
+
 			getline(file,line);
+
 			row++;
 		}
 		file.close();
 	}
-	else{ cerr<< "error when opening the file " << endl;}
+	else{cerr<< "error when opening the file " << endl;}
+
 	return row;
 }
 
@@ -101,15 +111,25 @@ int  Administration::rowCount(string file_path){
 void Administration::bus_list(string path){
 
 	ifstream file(path);
-	int index = 0;
+
+	int index = 0; //the index allows us
+
 	string line;
+
 	if(file.is_open()){
+
         cout << setw(50) <<"Bus available " << endl;
+
         cout << endl;
+
 		while(!file.eof()){
+
 			getline(file,line);
+
             index++;
+
 			cout << index << "."<< line << endl;
+
 			cout << endl;
 
 		}
@@ -165,7 +185,6 @@ string Administration::get_pseudo(){
 
 Administration::~Administration() {
 	// TODO Auto-generated destructor stub
-
 
 	delete transport;
 
