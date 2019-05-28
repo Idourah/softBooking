@@ -6,8 +6,6 @@
  */
 
 #include "Administration.h"
-#include "Bus.h"
-
 
 #include <iostream>
 #include <fstream>
@@ -26,67 +24,79 @@ Administration::Administration(){
 }
 void Administration::new_bus(string path){
 
-	transport = new Bus(60);
+	/*
+	 * thanks to this function a manager can add some bus programs
+	 *
+	 * then record them in a file using the record method
+	 */
+	//Transport *transport(0) ;
+	Bus transport;
 
-	string destination,departure,identifier;
+	string destination,departure,identifier,depart_time, depart_date, arrival_time, arrival_date;
 
-	int depart_hour,depart_minute,depart_day,arrival_hour,arrival_minute,arrival_day,month,year;
+	int capacity;
 
 	double price;
 
-	cout <<"please enter the id of the bus : ";getline(cin,identifier);
+	cout <<"please enter the capacity of the bus : ";cin>>capacity;
 
-	transport->set_identifier(identifier);
+	cout << endl;
 
-	cout <<"enter the departure spot   : ";getline(cin,departure);
+	cout <<"enter the departure spot   : ";cin >> departure;
 
-	transport->set_departure(departure);
+	cout << endl;
 
-	cout <<"enter the destination      : ";getline(cin,destination);
+	cout <<"enter the depart time ex : 10h   : ";cin >> depart_time;
 
-	transport->set_destination(destination);
+	cout << endl;
 
-	cout <<"enter the depart day       : ";cin >> depart_day;
+	cout <<"enter the depart date ex : 05-02-2019 : ";cin >> depart_date;
 
-	transport->set_depart_day(depart_day);
+	cout << endl;
 
-	cout <<"enter the departure hour   : ";cin >> depart_hour;
+	cout <<"enter the destination      : ";cin >> destination;
 
-	transport->set_depart_hour(depart_hour);
+	cout << endl;
 
-	cout <<"enter the departure minute : ";cin >> depart_minute;
+	cout <<"enter the arrival date     : ";cin >> arrival_date;
 
-	transport->set_depart_minute(depart_minute);
+	cout << endl;
 
-	cout <<"enter the arrival day      : ";cin >> arrival_day;
+	cout <<"enter the arrival time     : ";cin >> arrival_time;
 
-	transport->set_arrival_day(arrival_day);
+	cout << endl;
 
-	cout <<"enter the arrival hour     : ";cin >> arrival_hour;
-
-	transport->set_arrival_hour(arrival_hour);
-
-	cout <<"enter the arrival minute   : ";cin >> arrival_minute;
-
-	transport->set_arrival_minute(arrival_minute);
-
-	cout <<"enter  month               : ";cin >> month;
-
-	transport->set_month(month);
-
-	cout <<"enter the year             : ";cin >> year;
-
-	transport->set_year(year);
+	cout << endl;
 
 	cout <<"enter the price            :";cin>>price;
 
-	transport->set_price(price);
 
-	record(*transport,path);
+	transport.set_capacity(capacity);
 
+	transport.set_departure(departure);
+
+	transport.set_depart_date(depart_time);
+
+	transport.set_depart_date(depart_date);
+
+	transport.set_destination(destination);
+
+	transport.set_arrival_date(arrival_date);
+
+	transport.set_arrival_date(arrival_time);
+
+	transport.set_price(price);
+
+	record(transport,path);
 
 }
 int  Administration::rowCount(string file_path){
+
+	/*
+	 * rowCount count the line numbers that the file contains
+	 *
+	 * path is the name of the file
+	 */
 
 	ifstream file(file_path);
 
@@ -110,6 +120,12 @@ int  Administration::rowCount(string file_path){
 
 void Administration::bus_list(string path){
 
+
+	/*
+	 * @ this function display buses that are available
+	 *
+	 * path is the name of the file where the buses are stored
+	 */
 	ifstream file(path);
 
 	int index = 0; //the index allows us
@@ -143,21 +159,31 @@ void Administration::bus_list(string path){
 
 void Administration::record(Transport &t,string path){
 
+	/*
+	 * @ this function record a transport program in a file
+	 *
+	 * path is the name of the file we want to record our transport program
+	 */
+
 	ofstream file(path,ios_base::app);
 
 	if(file.is_open()){
 
-		file <<"Departure " << t.get_departure() << "  " << t.get_depart_hour() << "h:" << t.get_depart_minute() << " -------> Destination   "
+		file <<"Departure " << t.get_departure() << "  " << t.get_depart_time() << " -------> Destination   "
 
-	        << t.get_destination() << " " << t.get_arrival_hour() <<"h:"<< t.get_arrival_minute() << "  "
-
-			<< t.get_price() << "$" << endl;
+	        << t.get_destination() << " " << t.get_arrival_time() << " "<< t.get_price() << "$" << endl;
 
 		file.close();
 	}
 	else{cerr<<"error when opening a file " << endl;}
 }
 void Administration::booking_list(string path){
+
+	/*
+	 * this function display a list of persons that booked and the detail of their booking
+	 *
+	 * path is the file name where the booking are stored
+	 */
 
 	ifstream file(path);
 	string lines;
@@ -186,7 +212,7 @@ string Administration::get_pseudo(){
 Administration::~Administration() {
 	// TODO Auto-generated destructor stub
 
-	delete transport;
+
 
 }
 

@@ -27,28 +27,15 @@ public:
 
 	void set_identifier(std::string);
 
+	void set_depart_time(std::string);
+
+	void set_arrival_time(std::string);
+
+	void set_depart_date(std::string);
+
+	void set_arrival_date(std::string);
 
 	void set_price(double);
-
-	void set_arrival_minute(int);
-
-	void set_depart_minute(int);
-
-	void set_depart_hour(int);
-
-
-	void set_arrival_hour(int);
-
-	void set_depart_day(int);
-
-	void set_arrival_day(int);
-
-	void set_month(int);
-
-    void set_date(std::string);
-	void set_year(int);
-
-	void set_mean(std::string);
 
 	/******************************** getter features ***********************************/
 
@@ -58,21 +45,13 @@ public:
 
     std::string get_departure() const;
 
-    int get_depart_hour() const;
+    std::string get_depart_time() const;
 
-    int get_arrival_hour()const;
+    std::string get_arrival_time()const;
 
-    int get_depart_minute() const;
+    std::string get_depart_date() const;
 
-    int get_arrival_minute()const;
-
-    int get_depart_day() const;
-
-    int get_arrival_day()const;
-
-    int get_month() const;
-
-    int get_year() const;
+    std::string get_arrival_date()const;
 
     double get_price() const;
 
@@ -90,19 +69,19 @@ public:
     friend class Administration;
 
 
-private:
+protected:
 	std::string departure;
 	std::string destination;
 	std::string identifier;
+
 	std::string error_msg;
-	int depart_day;
-	int arrival_day;
-	int month;
-	int year;
-	int depart_hour;
-	int arrival_hour;
-    int depart_minute;
-	int arrival_minute;
+
+	std::string  depart_time;
+	std::string depart_date;
+
+	std::string arrival_time;
+	std::string arrival_date;
+
 	double price;
 
 

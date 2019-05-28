@@ -102,8 +102,6 @@ private:
 
 
 
-	Transport *transport = 0;
-
 	std::string pseudo;
 
 	std::string password;

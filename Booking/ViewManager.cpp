@@ -44,7 +44,11 @@ void ManagerView::view(){
 		          run = true;
 		          break;
 
-		   case 3 :View::Menu();
+		   case 3:manager.new_bus(bus_list_file_path);
+		         view();
+		         run = true;
+		         break;
+		   case 4 :View::Menu();
 		          run = true;
 		          break;
 
@@ -135,7 +139,11 @@ void ManagerView::Menu(){
 
     line_break();
 
-	cout <<"3.Logout" << endl;
+    cout <<"3.add a bus program " << endl;
+
+    line_break();
+
+	cout <<"4.Logout" << endl;
 
 	line_break();
 }

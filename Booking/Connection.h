@@ -38,8 +38,6 @@ public:
 
 	bool login(std::string,std::string);
 
-
-
     /************************************************************************
     *                                                                       *
     *                       rowCount method prototype                       *

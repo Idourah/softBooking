@@ -13,9 +13,12 @@
 class Bus :public Transport{
 
 public:
-	Bus();
-	Bus(int);
+    Bus();
 	virtual ~Bus();
+
+	void set_capacity(int);
+
+	int get_capacity();
 
 private:
 	int capacity;
