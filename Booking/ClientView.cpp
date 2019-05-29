@@ -6,6 +6,7 @@
  */
 
 #include "ClientView.h"
+#include "Reservation.h"
 #include <iostream>
 
 using namespace std;
@@ -40,6 +41,10 @@ void ClientView::view(){
 
 			      break;
 
+			case 4:run = true;
+			      View::Menu();
+			      break;
+
 			default:invalid_choice_msg();
 			        break;
 
@@ -64,10 +69,15 @@ void ClientView::Menu(){
 	cout <<"3.Display Flight Program " << endl;
 
 	line_break();
+
+	cout <<"4.Quit the menu " << endl;
+
+	line_break();
 }
 bool ClientView::Booking_Suggestion(){
 
 	 int choice;
+	 Reservation reserve;
 
      bool state = false;
 
@@ -79,6 +89,9 @@ bool ClientView::Booking_Suggestion(){
 
 	 case 1 :state = true;
 	        //we provide details by calling reservation method book before break
+            reserve.book();
+            reserve.record(booking_list_file_path);
+            view();
 	        break;
 
 	 case 2:view();break; //we go back to our client menu

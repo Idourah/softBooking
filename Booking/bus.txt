@@ -1,2 +1,3 @@
-Departure FRANCE  10 h 45 -------> Destination   POLAND 14 h 45 450$
-Departure France  10 h 45 -------> Destination    45 14 h 45 350$
+Departure FRANCE  10 h 45 -------> Destination   POLAND 14 h 45 450 $
+Departure France  10 h 45 -------> Destination    45 14 h 45 350 $
+

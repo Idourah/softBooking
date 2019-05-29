@@ -8,7 +8,9 @@ CPP_SRCS += \
 ../Bus.cpp \
 ../ClientView.cpp \
 ../Connection.cpp \
+../Flight.cpp \
 ../Reservation.cpp \
+../Train.cpp \
 ../Transport.cpp \
 ../View.cpp \
 ../ViewManager.cpp \
@@ -22,7 +24,9 @@ OBJS += \
 ./Bus.o \
 ./ClientView.o \
 ./Connection.o \
+./Flight.o \
 ./Reservation.o \
+./Train.o \
 ./Transport.o \
 ./View.o \
 ./ViewManager.o \
@@ -33,7 +37,9 @@ CPP_DEPS += \
 ./Bus.d \
 ./ClientView.d \
 ./Connection.d \
+./Flight.d \
 ./Reservation.d \
+./Train.d \
 ./Transport.d \
 ./View.d \
 ./ViewManager.d \

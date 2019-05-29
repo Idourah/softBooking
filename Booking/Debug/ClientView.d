@@ -1,5 +1,5 @@
 ClientView.o: ../ClientView.cpp ../ClientView.h ../View.h \
- ../Administration.h ../Transport.h ../Bus.h
+ ../Administration.h ../Transport.h ../Bus.h ../Reservation.h
 
 ../ClientView.h:
 
@@ -10,3 +10,5 @@ ClientView.o: ../ClientView.cpp ../ClientView.h ../View.h \
 ../Transport.h:
 
 ../Bus.h:
+
+../Reservation.h:

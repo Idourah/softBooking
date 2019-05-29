@@ -11,7 +11,8 @@
 #include "ClientView.h"
 #include <iostream>
 #include <iomanip>
-
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 
@@ -19,6 +20,7 @@ int main(){
 
    View view;
    view.Menu();
+
 }
 
 
