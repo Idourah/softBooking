@@ -1,5 +1,6 @@
 ViewManager.o: ../ViewManager.cpp ../ViewManager.h ../View.h \
- ../Administration.h ../Transport.h ../Bus.h ../Connection.h
+ ../Administration.h ../Transport.h ../Bus.h ../Train.h ../Flight.h \
+ ../Connection.h
 
 ../ViewManager.h:
 
@@ -10,5 +11,9 @@ ViewManager.o: ../ViewManager.cpp ../ViewManager.h ../View.h \
 ../Transport.h:
 
 ../Bus.h:
+
+../Train.h:
+
+../Flight.h:
 
 ../Connection.h:

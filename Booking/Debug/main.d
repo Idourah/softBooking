@@ -1,5 +1,5 @@
 main.o: ../main.cpp ../View.h ../Administration.h ../Transport.h ../Bus.h \
- ../ViewManager.h ../Connection.h ../ClientView.h
+ ../Train.h ../Flight.h ../ViewManager.h ../Connection.h ../ClientView.h
 
 ../View.h:
 
@@ -8,6 +8,10 @@ main.o: ../main.cpp ../View.h ../Administration.h ../Transport.h ../Bus.h \
 ../Transport.h:
 
 ../Bus.h:
+
+../Train.h:
+
+../Flight.h:
 
 ../ViewManager.h:
 

@@ -18,19 +18,7 @@ public:
 
 	virtual ~Train();
 
-
-
-	void set_capacity(int);
-
-
-
-	int get_capacity();
-
-
-
-private:
-
-	int capacity;
+	static int train_id;
 
 };
 

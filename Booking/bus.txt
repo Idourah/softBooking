@@ -1,3 +1,1 @@
-Departure FRANCE  10 h 45 -------> Destination   POLAND 14 h 45 450 $
-Departure France  10 h 45 -------> Destination    45 14 h 45 350 $
-
+From [ Varsovie]    at [ 10am ]   date [ 02-06-2019 ]    booking id [ B1001 ]  -----> To [ Cracovie ]   at [ 5pm ]   date [ 02-06-2019 ]  price [ 200 $ ]

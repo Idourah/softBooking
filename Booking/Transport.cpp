@@ -22,11 +22,11 @@ Transport::Transport()
 
 	identifier = "BOING AIR MAX 907";
 
-	depart_time = "10 h 45";
+	depart_time = "10h";
 
 	depart_date = "02-05-2019";
 
-	arrival_time = "14 h 45";
+	arrival_time = "14h";
 
 	arrival_date = "02-05-2019";
 
@@ -34,13 +34,13 @@ Transport::Transport()
 
 
 }
-void Transport::set_depart_time(string t){
+void Transport::set_depart_time(string time){
 
-	depart_time = t;
+	depart_time = time;
 }
-void Transport::set_arrival_time(string t){
+void Transport::set_arrival_time(string tme){
 
-	arrival_time = t;
+	arrival_time = tme;
 }
 void Transport::set_destination(string dest){
 

@@ -22,6 +22,10 @@ void ManagerView::view(){
 
 	   bus_list_file_path = "bus.txt";
 
+	   train_list_file_path = "train.txt";
+
+	   flight_list_file_path = "fligth.txt";
+
 	   bool run = false;
 
 
@@ -44,13 +48,33 @@ void ManagerView::view(){
 		          run = true;
 		          break;
 
-		   case 3:manager.new_bus(bus_list_file_path);
-		         view();
-		         run = true;
-		         break;
-		   case 4 :View::Menu();
+		   case 3 :manager.train_list(train_list_file_path);
+		          view();
 		          run = true;
 		          break;
+
+		   case 4 :manager.flight_list(train_list_file_path);
+		          view();
+		          run = true;
+		          break;
+
+		   case 5:manager.new_bus(bus_list_file_path);
+		  		  view();
+		  		  run = true;
+		  		  break;
+
+		   case 6:manager.new_train(train_list_file_path);
+		  		  view();
+		  		  run = true;
+		  		  break;
+
+		   case 7 :manager.new_flight(flight_list_file_path);
+		   		   run = true;
+		   		   break;
+
+		   case 8 :View::Menu();
+		  		   run = true;
+		  		   break;
 
 		   default:View::invalid_choice_msg();
 		           break;
@@ -92,16 +116,19 @@ void ManagerView::login_interface(){
 
 	    Connection con(path);
 
-	    cout << endl;
-	    cout <<"connecting as an administration member" << endl;cout << endl;
-
+	    cout <<endl;
+	    cout<<"----------- Login ---------------"<<endl;
 	    while(!state){
+            cout << endl;
 
-	    	cout <<"User.name : ";cin >> username;
+	    	cout<<"User.name : ";cin >> username;
 
 			cout << endl;
 
 			cout <<"Password  : ";cin >> password;
+
+			cout << endl;
+
 
 			if( con.login(username,password) == true){
 
@@ -130,22 +157,40 @@ void ManagerView::login_interface(){
 void ManagerView::Menu(){
 
 	line_break();
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
+	cout <<setw(80)<<"|        1.Display booking list        |" << endl;
+	cout <<setw(80)<<"|                                      |"<< endl;
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
 
-	cout <<"1.Display booking list" << endl;
+    cout <<setw(80)<<"|        2.Display available bus       |" << endl;
+	cout <<setw(80)<<"|                                      |"<< endl;
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
 
-	line_break();
+    cout <<setw(80)<<"|        3.Display available train     |" << endl;
+	cout <<setw(80)<<"|                                      |"<< endl;
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
 
-    cout <<"2.Display bus list" << endl;
+    cout <<setw(80)<<"|        4.Display available Flight    |" << endl;
+	cout <<setw(80)<<"|                                      |"<< endl;
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
 
-    line_break();
+    cout <<setw(80)<<"|        5.add a bus program           |" << endl;
+	cout <<setw(80)<<"|                                      |"<< endl;
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
 
-    cout <<"3.add a bus program " << endl;
+    cout <<setw(80)<<"|        6.add a train program         |" << endl;
+	cout <<setw(80)<<"|                                      |"<< endl;
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
 
-    line_break();
+    cout <<setw(80)<<"|        7.add a Flight program        |" << endl;
+	cout <<setw(80)<<"|                                      |"<< endl;
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
 
-	cout <<"4.Logout" << endl;
+    cout <<setw(80)<<"|        8.Logout                      |" << endl;
+	cout <<setw(80)<<"|                                      |"<< endl;
+    cout <<setw(80)<<" ---------------------------------------"<<endl;
 
-	line_break();
+
 }
 
 ManagerView::~ManagerView() {

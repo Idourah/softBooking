@@ -18,6 +18,7 @@
 using namespace std;
 
 
+
 Administration::Administration(){
 
 	row = 0;
@@ -34,23 +35,20 @@ void Administration::new_bus(string path){
 
 	string destination,departure,identifier,depart_time, depart_date, arrival_time, arrival_date;
 
-	int capacity;
 
 	double price;
 
-	cout <<"please enter the capacity of the bus : ";cin>>capacity;
+	cout << endl;
+
+	cout <<"enter the departure spot   : ";cin>>departure;
 
 	cout << endl;
 
-	cout <<"enter the departure spot   : ";cin >> departure;
+	cout <<"enter the depart time (hint) 10am   : ";cin >> depart_time;
 
 	cout << endl;
 
-	cout <<"enter the depart time ex : 10h   : ";cin >> depart_time;
-
-	cout << endl;
-
-	cout <<"enter the depart date ex : 05-02-2019 : ";cin >> depart_date;
+	cout <<"enter the depart date (hint) 05-02-2019 : ";cin >> depart_date;
 
 	cout << endl;
 
@@ -58,7 +56,70 @@ void Administration::new_bus(string path){
 
 	cout << endl;
 
-	cout <<"enter the arrival date     : ";cin >> arrival_date;
+	cout <<"enter the arrival time          : ";cin >> arrival_time;
+
+	cout << endl;
+
+	cout <<"enter the arrival date          : ";cin >> arrival_date;
+
+	cout << endl;
+
+	cout << endl;
+
+	cout <<"enter the price            :";cin>>price;
+
+
+	transport.set_departure(departure);
+
+	transport.set_depart_time(depart_time);
+
+	transport.set_depart_date(depart_date);
+
+	transport.set_destination(destination);
+
+	transport.set_arrival_date(arrival_date);
+
+	transport.set_arrival_time(arrival_time);
+
+	transport.set_price(price);
+
+	record(transport,path);
+
+}
+void Administration::new_train(string path){
+
+	/*
+	 * thanks to this function a manager can add some bus programs
+	 *
+	 * then record them in a file using the record method
+	 */
+	//Transport *transport(0) ;
+	Train transport;
+
+	string destination,departure,identifier,depart_time, depart_date, arrival_time, arrival_date;
+
+	double price;
+
+
+	cout << endl;
+
+	cout <<"enter the departure spot   : ";cin >> departure;
+
+	cout << endl;
+
+	cout <<"enter the depart time (hint) 10am   : ";cin >> depart_time;
+
+	cout << endl;
+
+	cout <<"enter the depart date (hint) 05-02-2019 : ";cin >> depart_date;
+
+	cout << endl;
+
+	cout <<"enter the arrival time          : ";cin >> arrival_time;
+
+	cout << endl;
+
+    cout <<"enter the arrival date          : ";cin >> arrival_date;
 
 	cout << endl;
 
@@ -71,11 +132,11 @@ void Administration::new_bus(string path){
 	cout <<"enter the price            :";cin>>price;
 
 
-	transport.set_capacity(capacity);
+
 
 	transport.set_departure(departure);
 
-	transport.set_depart_date(depart_time);
+	transport.set_depart_time(depart_time);
 
 	transport.set_depart_date(depart_date);
 
@@ -83,7 +144,74 @@ void Administration::new_bus(string path){
 
 	transport.set_arrival_date(arrival_date);
 
-	transport.set_arrival_date(arrival_time);
+	transport.set_arrival_time(arrival_time);
+
+	transport.set_price(price);
+
+	record(transport,path);
+
+}
+void Administration::new_flight(string path){
+
+	/*
+	 * thanks to this function a manager can add some bus programs
+	 *
+	 * then record them in a file using the record method
+	 */
+	//Transport *transport(0) ;
+	Flight transport;
+
+	string destination,departure,identifier,depart_time, depart_date, arrival_time, arrival_date;
+
+
+
+	double price;
+
+	cout << endl;
+
+	cout <<"enter the departure spot        : ";cin >> departure;
+
+	cout << endl;
+
+	cout <<"enter the depart time (hint) 10am   : ";cin >> depart_time;
+
+	cout << endl;
+
+	cout <<"enter the depart date (hint) 05-02-2019 : ";cin >> depart_date;
+
+	cout << endl;
+
+	cout <<"enter the destination           : ";cin >> destination;
+
+	cout << endl;
+
+
+	cout <<"enter the arrival time          : ";cin >> arrival_time;
+
+	cout << endl;
+
+	cout <<"enter the arrival date          : ";cin >> arrival_date;
+
+	cout << endl;
+
+	cout << endl;
+
+	cout <<"enter the price                 :";cin>>price;
+
+
+
+
+	transport.set_departure(departure);
+
+	transport.set_depart_time(depart_time);
+
+	transport.set_depart_date(depart_date);
+
+	transport.set_destination(destination);
+
+	transport.set_arrival_date(arrival_date);
+
+	transport.set_arrival_time(arrival_time);
 
 	transport.set_price(price);
 
@@ -134,7 +262,7 @@ void Administration::bus_list(string path){
 
 	if(file.is_open()){
 
-        cout << setw(50) <<"Bus available " << endl;
+        cout << setw(50) <<"Available Bus" << endl;
 
         cout << endl;
 
@@ -157,6 +285,82 @@ void Administration::bus_list(string path){
 	}
 }
 
+void Administration::train_list(string path){
+
+
+	/*
+	 * @ this function display buses that are available
+	 *
+	 * path is the name of the file where the buses are stored
+	 */
+	ifstream file(path);
+
+	int index = 0; //the index allows us
+
+	string line;
+
+	if(file.is_open()){
+
+        cout << setw(50) <<"Available Train " << endl;
+
+        cout << endl;
+
+		while(!file.eof()){
+
+			getline(file,line);
+
+            index++;
+
+			cout << index << "."<< line << endl;
+
+			cout << endl;
+
+		}
+
+		file.close();
+	}
+	else{
+		cerr << "Error when opening the file " << endl;
+	}
+}
+void Administration::flight_list(string path){
+
+
+	/*
+	 * @ this function display buses that are available
+	 *
+	 * path is the name of the file where the buses are stored
+	 */
+	ifstream file(path);
+
+	int index = 0; //the index allows us
+
+	string line;
+
+	if(file.is_open()){
+
+        cout << setw(50) <<"Available Flight " << endl;
+
+        cout << endl;
+
+		while(!file.eof()){
+
+			getline(file,line);
+
+            index++;
+
+			cout << index << "."<< line << endl;
+
+			cout << endl;
+
+		}
+
+		file.close();
+	}
+	else{
+		cerr << "Error when opening the file " << endl;
+	}
+}
 void Administration::record(Transport &t,string path){
 
 	/*
@@ -169,9 +373,9 @@ void Administration::record(Transport &t,string path){
 
 	if(file.is_open()){
 
-		file <<"Departure " << t.get_departure() << "  " << t.get_depart_time() << " -------> Destination   "
+		file <<"From [ " << t.get_departure() << "]  "<< "  at [ " << t.get_depart_time() << " ] " << "  date [ " << t.get_depart_date() << " ]  "<< "  booking id [ " << t.get_identifier() << " ] "<< " -----> To [ "
 
-	        << t.get_destination() << " " << t.get_arrival_time() << " "<< t.get_price() << "$" << endl;
+	        << t.get_destination() << " ] "<< "  at [ " << t.get_arrival_time() << " ] "<<"  date [" << t.get_arrival_date() << " ] "<< " price [ "<< t.get_price() << " $ ]" << endl;
 
 		file.close();
 	}

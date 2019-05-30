@@ -16,12 +16,9 @@ public:
     Bus();
 	virtual ~Bus();
 
-	void set_capacity(int);
+	static int bus_id;
 
-	int get_capacity();
-
-private:
-	int capacity;
 };
+
 
 #endif /* BUS_H_ */

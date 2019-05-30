@@ -8,7 +8,7 @@
 #include "ClientView.h"
 #include "Reservation.h"
 #include <iostream>
-
+#include <iomanip>
 using namespace std;
 
 ClientView::ClientView() {
@@ -21,7 +21,11 @@ void ClientView::view(){
 
 	View::booking_list_file_path  = "reservation.txt";
 
-		View::bus_list_file_path = "bus.txt";
+	View::bus_list_file_path = "bus.txt";
+
+	View::train_list_file_path = "train.txt";
+
+	View::flight_list_file_path ="flight.txt";
 
 		bool run = false;
 
@@ -41,6 +45,18 @@ void ClientView::view(){
 
 			      break;
 
+			case 2:manager.train_list(train_list_file_path);
+			      line_break();
+			      Booking_Suggestion();
+			      run = true;
+			      break;
+
+			case 3:manager.flight_list(flight_list_file_path);
+		          line_break();
+		          Booking_Suggestion();
+		          run = true;
+		          break;
+
 			case 4:run = true;
 			      View::Menu();
 			      break;
@@ -57,20 +73,23 @@ void ClientView::view(){
 void ClientView::Menu(){
 
 	line_break();
+    cout<<setw(80)<<"---------------------------"<< endl;
+	cout<<setw(80)<<"|   1.Display Bus program |"<< endl;
+    cout<<setw(80)<<"|                         |"<<endl;
+    cout<<setw(80)<<"---------------------------"<<endl;
 
-	cout <<"1.Display Bus program "   << endl;
 
-	line_break();
+	cout<<setw(80)<<"|  2.Display Train Program|"<< endl;
+	cout<<setw(80)<<"|                         |"<<endl;
+	cout<<setw(80)<<"---------------------------"<<endl;
 
-	cout <<"2.Display Train Program " << endl;
+	cout<<setw(80)<<"| 3.Display Flight Program|" << endl;
+	cout<<setw(80)<<"|                         |" << endl;
+	cout<<setw(80)<<"---------------------------" <<endl;
 
-	line_break();
-
-	cout <<"3.Display Flight Program " << endl;
-
-	line_break();
-
-	cout <<"4.Quit the menu " << endl;
+	cout<<setw(80)<<"|  4.Quit the menu        |" << endl;
+	cout<<setw(80)<<"|                         |" << endl;
+	cout<<setw(80)<<"---------------------------" << endl;
 
 	line_break();
 }
@@ -88,7 +107,6 @@ bool ClientView::Booking_Suggestion(){
 	 switch(choice){
 
 	 case 1 :state = true;
-	        //we provide details by calling reservation method book before break
             reserve.book();
             reserve.record(booking_list_file_path);
             view();

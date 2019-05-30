@@ -28,19 +28,26 @@ void View::Menu(){
 
 	    cout << setw(50) <<"Welcome to softBooking " << endl;
 
-		cout << "Please choice according to your needs" << endl;
+	    cout <<endl;
+
+		cout << "Please choose according to your need" << endl;
 
 		cout << endl;
+        cout<< setw(80)<<"--------------------------"<<endl;
+		cout<< setw(80)<<"|  1.SoftBooking Manager |" << endl;
+        cout<< setw(80)<<"|                        |" << endl;
+        cout<< setw(80)<<"--------------------------"<<endl;
 
-		cout <<"1.SoftBooking Manager " << endl;
+        cout<< setw(80)<<"|  2.SoftBooking Client  |" << endl;
+        cout<< setw(80)<<"|                        |" << endl;
+        cout<< setw(80)<<"--------------------------" << endl;
 
-		cout << endl;
+	    cout<< setw(80)<<"|  3.Quit                |" << endl;
+	    cout<< setw(80)<<"|                        |" << endl;
+        cout<< setw(80)<<"--------------------------" << endl;
 
-		cout <<"2.SoftBooking Client  " << endl;
 
-		cout << endl;
-
-		cout <<"Enter your choice ! waiting ...:";cin >>choice;
+	  cout <<"Enter your choice ! waiting ...:";cin >>choice;
 
 		    while(!run){
 
@@ -54,8 +61,13 @@ void View::Menu(){
 		    	            run = true;
 		    	            break;
 
-		    	    default: cerr<<"invalid choice ! please choice between 1 and 2 " << endl;
-		    	             run = false;
+		    	    case 3:run = true;
+		    	           exit(10);
+                           break;
+		    	    default: cout << endl;
+		    	    	     cerr<<"invalid choice ! please choice between 1 and 3 " << endl;
+		    	             cout << endl;
+		    	             View::Menu();
 		    	             break;
 		    	    }
 

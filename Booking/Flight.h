@@ -9,12 +9,9 @@ public:
     Flight();
 	virtual ~Flight();
 
-	void set_capacity(int);
 
-	int get_capacity();
+	static int flight_id;
 
-private:
-	int capacity;
 };
 
 

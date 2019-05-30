@@ -16,7 +16,7 @@ using namespace std;
 
 Reservation::Reservation() {
 	// TODO Auto-generated constructor stub
-	index = 0;
+
 }
 
 void Reservation::set_email_add(string email){
@@ -32,9 +32,9 @@ void Reservation::set_last_name(string l_name){
    last_name = l_name;
 }
 
-int Reservation::get_index()const{
+string Reservation::get_booking_id()const{
 
-	return index;
+	return booking_id;
 }
 string Reservation::get_email_add()const{
 
@@ -51,15 +51,15 @@ string Reservation::get_last_name()const{
 void Reservation::book(){
 	 string first_name,last_name,email;
 
-	 int index;
+	 string index;
 
-	 cout <<"First Name             : "; cin >> first_name;
+	 cout <<"First Name                                : "; cin >> first_name;
 
-	 cout <<"Last Name              : "; cin >> last_name;
+	 cout <<"Last Name                                 : "; cin >> last_name;
 
-     cout <<"Email address          : "; cin >> email;
+     cout <<"Email address                             : "; cin >> email;
 
-     cout <<"Enter a program id     : ";cin >> index;
+     cout <<"Booking Id (on your transport program)    : ";cin >> index;
 
     set_first_name(first_name);
 
@@ -71,9 +71,9 @@ void Reservation::book(){
 
 
 }
-void Reservation::set_index(int idx){
+void Reservation::set_index(string idx){
 
-	index = idx;
+	booking_id = idx;
 }
 void Reservation::record(string path){
 
@@ -83,7 +83,7 @@ void Reservation::record(string path){
 
 	if(file.is_open()){
 
-		file <<"Name : " <<get_first_name() <<" "<< get_last_name() << " ----> " << " Email address : "<< get_email_add() << " ----> " << "program id : " << " -----> "<< get_index() << endl;
+		file <<"Name : " <<get_first_name() <<" "<< get_last_name() << " ----> " << " Email address : "<< get_email_add() << " ----> " << "Booking Id : " << " -----> "<< get_booking_id() << endl;
 	}
 
 	cout << endl;

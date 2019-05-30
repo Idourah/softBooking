@@ -12,6 +12,8 @@
 #include <vector>
 #include "Transport.h"
 #include "Bus.h"
+#include "Train.h"
+#include "Flight.h"
 
 
 class Administration {
@@ -46,7 +48,7 @@ public:
     *                                                                       *
     *************************************************************************/
 
-	void new_flight();
+	void new_flight(std::string);
 
     /************************************************************************
     *                                                                       *
@@ -54,7 +56,7 @@ public:
     *                                                                       *
     *************************************************************************/
 
-	void new_train();
+	void new_train(std::string);
 
     /************************************************************************
     *                                                                       *
@@ -81,6 +83,10 @@ public:
     int rowCount(std::string);
 
     void bus_list(std::string);
+
+    void train_list(std::string);
+
+    void flight_list(std::string);
 
     std::string get_pseudo();
 

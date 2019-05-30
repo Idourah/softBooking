@@ -11,22 +11,16 @@
 using namespace std;
 
 
+int Bus::bus_id = 1000;
+
 Bus::Bus():Transport(){
 
-	capacity = 0;
+	bus_id++;
+	string identifier = "B" + to_string(bus_id);
+	Bus::set_identifier(identifier);
 }
-void Bus::set_capacity(int cap){
 
-	 if(cap <= 0){
-		   cerr <<"invalid format " << endl;
-	   }
-	   else
-		   capacity = cap;
-}
-int Bus::get_capacity(){
 
-	return capacity;
-}
 Bus::~Bus() {
 	// TODO Auto-generated destructor stub
 }

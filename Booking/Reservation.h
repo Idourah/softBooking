@@ -20,15 +20,14 @@ public:
 	void set_first_name(std::string);
 	void set_last_name(std::string);
 	void set_email_add(std::string);
-	void set_index(int);
+	void set_index(std::string);
 
     void book();
 
 	std::string get_first_name()const;
 	std::string get_last_name()const;
 	std::string get_email_add()const;
-
-	int get_index()const;
+    std::string get_booking_id()const;
 
 	void record(std::string path);
 
@@ -45,7 +44,7 @@ private:
 	std::string first_name;
 	std::string last_name;
 	std::string email_add;
-	int index;
+	std::string booking_id;
 
 
 
